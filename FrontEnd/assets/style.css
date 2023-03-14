@@ -214,3 +214,18 @@ footer nav ul {
 	background: #1D6154;
 	color: #fff;
 }
+
+button[name='tous']{
+	background-color: #1D6154;
+	color: #fff;
+}
+
+
+
+.hidden{
+	display: none;
+}
+
+.true{
+	display: block;
+}
