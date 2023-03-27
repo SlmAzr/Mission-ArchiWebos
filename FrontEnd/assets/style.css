@@ -23,7 +23,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -46,8 +46,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/** end reset css**/
+
 body {
+	
 	max-width: 1140px;
 	margin:auto;
 	font-family: 'Work Sans' ;
@@ -209,16 +210,64 @@ footer nav ul {
 	border-radius: 60px ;
 }
 
-
+.filtres button:hover{
+	background: #1D6154;
+	color: #fff;
+}
 .filtres button:active{
 	background: #1D6154;
 	color: #fff;
 }
 
-button[name='tous']{
-	background-color: #1D6154;
-	color: #fff;
+
+
+
+/* LOGIN / LOGOUT  */
+
+.logout{
+	display: none;
 }
+/* pop depop */
+
+.admin-headband {
+	width: 100%;
+	height: 60px;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	position: relative;
+	max-width: none;
+  }
+  
+
+  .edition-mode {
+	color: white;
+  }
+  
+  .edition-mode > i {
+	color: white;
+  }
+  
+  .admin-headband > button {
+	background-color: white;
+	font-family: "Work Sans";
+	font-size: 14px;
+	font-weight: 500;
+	padding: 10px;
+	min-width: 100px;
+	border-radius: 60px;
+	transition: all 0.2s;
+  }
+  
+  .admin-headband > button:hover {
+	background-color: lightgray;
+  }
+  
+  i {
+	padding-right: 8px;
+  }
 
 
 
@@ -229,3 +278,35 @@ button[name='tous']{
 .true{
 	display: block;
 }
+
+
+.conn{
+	display: flex;
+	text-align: center;
+	justify-content: center;
+}
+
+.conn button {
+	height: 30px;
+	padding: 0;
+    padding-left: 15px ;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    line-height: 15px;
+	
+}
+.conn button {
+	margin-top: 3.5px;
+    border: none;
+    font-family: "Work Sans";
+    cursor: pointer;
+    background-color: inherit;
+}
+
+.conn i {
+
+height: 0px;
+    
+}
+

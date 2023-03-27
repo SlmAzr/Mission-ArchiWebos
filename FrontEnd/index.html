@@ -4,13 +4,16 @@
 	<meta charset="UTF-8">
 	<title>Sophie Bluel - Architecte d'intérieur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/45352d0537.js" crossorigin="anonymous"></script>
 
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script src="script.js"></script>
+	<link rel="stylesheet" href="./assets/modal.css">
+	
 </head>
 <body>
 <header>
@@ -18,8 +21,10 @@
 	<nav>
 		<ul>
 			<li>projets</li>
+			
 			<li>contact</li>
-			<li><a href="login.html">login</a></li>
+			<li class="login"><a href="login.html">login</a></li>
+      		<li class="logout"><a href="index.html">logout</a> </li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -36,8 +41,87 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
-	<section id="portfolio">
-		<h2>Mes Projets</h2>
+	<section id="portfolio">		
+		<div class="conn">
+			<h2>Mes Projets</h2>
+			
+			<button id="modifier" style="display: none;"><i class="fa-solid fa-pen-to-square" ></i>Modifier</button>
+					
+		</div>
+
+
+		<div id="modal" class="modal" disp>
+			<div class="modal-content">
+			  <span class="close">&times;</span>
+			  <h2>Galerie photo</h2>
+			  <div class="modal-body">
+				
+			  </div>
+			  <div class="modalBtn">
+				<button id="ajouter-photo">Ajouter une photo</button>
+				<button id="supprimer-galerie">Supprimer la galerie</button>
+			  </div>
+			</div>
+		  </div>
+
+        <!-- <aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display:none;">
+            <div class="modal-wrapper js-modal-stop">
+
+                <div class="close-btn"><button class="js-modal-close"><span>X</span></button></div>
+                <h1 id="titlemodal">Galerie photo</h1>
+				<div class="modifer">
+				</div>	
+			
+				<div class="footer-mod">
+					
+					<button name="ajt">Ajouter une photo</button>
+					<button onclick="suppGalerie()" name="supp">Suprimer la galerie</button>
+				</div>
+        
+			</div>
+        </aside>
+ -->
+
+
+		<aside id="modal2" class="modal" style="display:none;">
+			<div class=" modal-wrapper2 js-modal-stop">
+				<div class="close-btn"><button class="js-modal-close"><span>X</span></button></div>
+				<h1 id="titlemodal">Ajouter une photo</h1>
+			
+
+				<div class="modifer2">
+
+					<div class="preview">
+						<div class="emplacement">
+							<button name="ajt2">+ Ajouter une photo</button>
+							<p>jpg, png : 4mo max </p>
+						</div>
+					</div>
+					<div class="corps">
+						<label for="">Titre</label>
+						<input type="text">
+						<label for="">Catégorie</label>
+						<select name="im" id="">????</select>
+					</div>
+					<div class="footer-mod">
+					
+						<button name="ajt">Valider</button>
+						
+					</div>
+				</div>	
+
+
+			</div>
+		</aside>
+		
+
+
+
+
+
+
+
+
 		<div class="filtres">
 
 			<button onclick="filtresTous()" name="tous" >tous</button>
@@ -45,57 +129,16 @@
 			<button onclick="filtresAppart()" name="Appartement" >Appartement</button>
 			<button onclick="filtresHR()" name="hôtels&Restaurants">Hôtels & restaurants</button>
 
+			
 
+			
 
 		</div>
+
+			
 		<div class="gallery">
 			
-			<!-- <figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure> -->
-
-
+			
 
 		</div>
 	</section>
@@ -121,5 +164,8 @@
 		</ul>
 	</nav>
 </footer>
+	<script src="script.js"></script>
+	<script src="login.js"></script>
+	<script src="modal.js"></script>
 </body>
 </html>
