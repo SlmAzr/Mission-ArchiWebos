@@ -339,3 +339,158 @@ function displayGalleryImages(images) {
 });
 }
 
+
+
+
+
+
+
+  //  ://///////////////////////////////////////////-
+
+
+const addPhotoBtn = document.querySelector('#ajouter-photo');
+addPhotoBtn.addEventListener('click', () => {
+  const addPhotoModal = document.querySelector('#add-photo-modal');
+  addPhotoModal.style.display = 'block';
+});
+
+const addPhotoForm = document.querySelector('#add-photo-form');
+addPhotoForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  // Récupérer les données du formulaire
+  const title = document.querySelector('#title').value;
+  const category = document.querySelector('#category').value;
+  const image = document.querySelector('#image').files[0];
+
+  let categoryId;
+
+  console.log(categoryId, category);
+  
+  switch (category) {
+   
+    case 'objets':
+      categoryId = 1;
+      break;
+    case 'appartements':
+      categoryId = 2;
+      break;
+    case 'hotel_restaurant':
+      categoryId = 3;
+      break;
+    
+  }
+
+  console.log(categoryId);
+  
+  const token = localStorage.getItem('token');
+  
+  // Envoyer les données à l'API
+  const formData = new FormData();
+  formData.append('title', title);
+  formData.append('category', categoryId);
+  formData.append('image', image);
+
+  console.log(formData.getAll('category'));
+  console.log(formData.getAll('title'));
+  console.log(formData.getAll('image.name'));
+  console.log(formData.get('image'));
+
+  console.log(title, categoryId, image, image.name);
+
+  const options = {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  };
+  
+  try {
+    const response = await fetch('http://localhost:5678/api/works', options);
+    categoryId = Number(categoryId);
+    console.log(categoryId);
+
+    if (response.ok) {
+      console.log('Image ajoutée avec succès');
+
+      // Fermer la modale
+      const addPhotoModal = document.querySelector('#add-photo-modal');
+      addPhotoModal.style.display = 'none';
+
+      // Rafraîchir la galerie d'images
+      fetchGalleryImages();
+    } else {
+      console.log('Une erreur est survenue');
+      alert('Une erreur est survenue lors de l\'ajout de l\'image');
+    }
+  } catch (error) {
+    console.error('Une erreur est survenue', error);
+    // alert('Une erreur est survenue lors de l\'ajout de l\'image');
+  }
+});
+
+const addPhotoModal = document.querySelector('#add-photo-modal');
+const addPhotoCloseBtn = addPhotoModal.querySelector('.close');
+addPhotoCloseBtn.addEventListener('click', () => {
+  addPhotoModal.style.display = 'none';
+});
+window.addEventListener('click', (event) => {
+  // Si l'événement de clic se produit en dehors de la modale, la fermer
+  if (event.target == addPhotoModal) {
+    addPhotoModal.style.display = 'none';
+  }
+});
+
+
+
+
+
+// Afficher la prévisualisation de l'image à télécharger
+function readFile(e) {
+  e.preventDefault();
+
+  // Constante et fonction pour la lecture de l'image
+  const reader = new FileReader();
+  reader.addEventListener("load", function () {
+    // Créer l'élément d'image de prévisualisation
+    const previewImage = document.createElement("img");
+    previewImage.setAttribute("id", "preview_image");
+    previewImage.setAttribute("src", reader.result);
+  
+    // Ajouter les styles à l'élément de prévisualisation
+    previewImage.style.maxWidth = "380px";
+    previewImage.style.maxHeight = "220px";
+    previewImage.style.width = "auto";
+    previewImage.style.height = "auto";
+    previewImage.style.objectFit = "cover";
+    previewImage.style.objectPosition = "center center";
+    previewImage.style.transform = "translateY(-17px)";
+    previewImage.style.opacity = "1";
+
+      
+    // Ajouter l'image de prévisualisation au conteneur
+    const picture = document.querySelector(".picture");
+    picture.appendChild(previewImage);
+      
+    // Masquer le label de sélection de fichier
+    const label = document.querySelector(".picture > label");
+    label.style.opacity = "0";
+      
+    // Masquer l'image de logo et le paragraphe suivant la prévisualisation de l'image
+    const logoImage = document.querySelector("#logo_image");
+    const pMaxSize = document.querySelector(".picture > p");
+    logoImage.style.display = "none";
+    pMaxSize.style.display = "none";
+  });
+  
+  // Lire le fichier sélectionné
+  reader.readAsDataURL(inputFile.files[0]);
+}
+
+// Récupérer l'élément de fichier
+const inputFile = document.getElementById("image");
+
+// Ajouter un gestionnaire d'événements pour la sélection de fichier
+inputFile.addEventListener("change", readFile);
+
