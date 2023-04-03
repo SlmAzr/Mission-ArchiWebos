@@ -41,6 +41,7 @@ fetch('http://localhost:5678/api/works')
 // FILTRES
 
 
+const button = document.querySelector('#tous');
 function filtresTous(){
   // console.log("rarara");
   fetch("http://localhost:5678/api/works")
@@ -72,7 +73,10 @@ function filtresTous(){
     
 });
 }
+button.addEventListener('click', filtresTous);
 
+
+const button2 = document.querySelector('#objet');
 function filtresObjets() {
   fetch("http://localhost:5678/api/works")
     .then(response => response.json())
@@ -103,7 +107,10 @@ function filtresObjets() {
 
     });
 }
+button2.addEventListener('click', filtresObjets);
 
+
+const button3 = document.querySelector('#Appart');
 function filtresAppart(){
   fetch("http://localhost:5678/api/works")
     .then(response => response.json())
@@ -134,8 +141,13 @@ function filtresAppart(){
 
     });
 }
+button3.addEventListener('click', filtresAppart);
 
 
+
+
+
+const button4 = document.querySelector('#hr');
 function filtresHR(){
   fetch("http://localhost:5678/api/works")
   .then(response => response.json())
@@ -166,7 +178,7 @@ function filtresHR(){
 
   });
 }
-
+button4.addEventListener('click', filtresHR);
 
 
 

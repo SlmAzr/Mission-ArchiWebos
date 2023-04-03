@@ -65,8 +65,9 @@ loginForm.addEventListener("submit", async (event) => {
       },
       body: JSON.stringify({ email, password }),
     });
-    loginButton.innerHTML += "Connexion en cours...";
+    loginButton.innerHTML += "Connexion";
     if (!response.ok) {
+      alert('mot de passe ou email incorrect')
       throw new Error("Echec de la connexion");
     }
 
@@ -78,7 +79,7 @@ loginForm.addEventListener("submit", async (event) => {
   } catch (error) {
     console.log(error);
     loginErrorMsg.style.display = "block";
-    loginButton.innerHTML += "Echec de la connexion";
+    // loginButton.innerHTML += "Echec de la connexion";
     loginButton.removeAttribute("disabled");
   }
 });
