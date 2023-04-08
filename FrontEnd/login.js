@@ -1,45 +1,5 @@
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     const formEl = document.querySelector('.form');
-  
-//     formEl.addEventListener('submit', event => {
-//       event.preventDefault();
-  
-//       const formData = new FormData(formEl);
-//       const data = Object.fromEntries(formData);
-//       // console.log(data);
-   
-//       // fetch("http://localhost:5678/api/users/login")
-//       // .then(response => response.json())
-//       // .then(vrai=> {
-//       //     console.log(vrai.email);
-//       // });
-  
-//       fetch('http://localhost:5678/api/users/login',{
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Cache-Control': 'no-cache'
-//         },
-//         body: JSON.stringify(data)
-        
-//       }).then(res => res.json())
-//         .then(data => console.log(data))
-
-//     });
-
-//   });
-
-
-
-    
-  // });
-  
-
-
-
-
   const loginForm = document.getElementById("login-form");
 const emailInput = document.getElementById("email-input");
 const passwordInput = document.getElementById("password-input");

@@ -1,182 +1,3 @@
-// const focusableSelector = "button, a, input, textarea";
-            // let modal = null
-            //   , focusables = []
-            //   , previouslyFocusedElement = null;
-            // const openModal = async function(e) {
-            //     e.preventDefault();
-            //     const o = e.target.getAttribute("href");
-            //     modal = o.startsWith("#") ? document.querySelector(o) : await loadModal(o),
-            //     focusables = Array.from(modal.querySelectorAll(focusableSelector)),
-            //     previouslyFocusedElement = document.querySelector(":focus"),
-            //     modal.style.display = null,
-            //     focusables[0].focus(),
-            //     modal.removeAttribute("aria-hidden"),
-            //     modal.setAttribute("aria-modal", "true"),
-            //     modal.addEventListener("click", closeModal),
-            //     modal.querySelector(".js-modal-close").addEventListener("click", closeModal),
-            //     modal.querySelector(".js-modal-stop").addEventListener("click", stopPropagation),
-
-            //     modal2.removeAttribute("aria-hidden"),
-            //     modal2.setAttribute("aria-modal", "true"),
-            //     modal2.addEventListener("click", closeModal),
-            //     modal2.querySelector(".js-modal-close").addEventListener("click", closeModal),
-            //     modal2.querySelector(".js-modal-stop").addEventListener("click", stopPropagation)
-
-
-
-                
-            // }
-            //   , closeModal = function(e) {
-            //     if (null === modal)
-            //         return;
-            //     null !== previouslyFocusedElement && previouslyFocusedElement.focus(),
-            //     e.preventDefault(),
-            //     modal.setAttribute("aria-hidden", "true"),
-            //     modal.removeAttribute("aria-modal"),
-            //     modal.removeEventListener("click", closeModal),
-            //     modal.querySelector(".js-modal-close").removeEventListener("click", closeModal),
-            //     modal.querySelector(".js-modal-stop").removeEventListener("click", stopPropagation)
-                
-                
-            //     modal2.setAttribute("aria-hidden", "true"),
-            //     modal2.removeAttribute("aria-modal"),
-            //     modal2.removeEventListener("click", closeModal),
-            //     modal2.querySelector(".js-modal-close").removeEventListener("click", closeModal),
-            //     modal2.querySelector(".js-modal-stop").removeEventListener("click", stopPropagation)
-                
-                
-            //     ;
-            //     const o = function() {
-            //         modal.style.display = "none",
-            //         modal.removeEventListener("animationend", o),
-            //         modal = null
-
-
-            //         modal2.style.display = "none",
-            //         modal2.removeEventListener("animationend", o),
-            //         modal = null
-            //     };
-            //     modal.addEventListener("animationend", o)
-            //     modal2.addEventListener("animationend", o)
-            // }
-            //   , stopPropagation = function(e) {
-            //     e.stopPropagation()
-            // }
-            //   , focusInModal = function(e) {
-            //     e.preventDefault();
-            //     let o = focusables.findIndex(e=>e === modal.querySelector(":focus"));
-            //     !0 === e.shiftKey ? o-- : o++,
-            //     o >= focusables.length && (o = 0),
-            //     o < 0 && (o = focusables.length - 1),
-            //     focusables[o].focus()
-            // }
-            //   , loadModal = async function(e) {
-            //     const o = "#" + e.split("#")[1]
-            //       , t = document.querySelector(o);
-            //     if (null !== t)
-            //         return t;
-            //     const l = await fetch(e).then(e=>e.text())
-            //       , a = document.createRange().createContextualFragment(l).querySelector(o);
-            //     if (null === a)
-            //         throw `L'élément ${o} n'a pas été trouvé dans la page ${e}`;
-            //     return document.body.append(a),
-            //     a
-            // };
-            // document.querySelectorAll(".js-modal").forEach(e=>{
-            //     e.addEventListener("click", openModal)
-            // }
-            // ),
-            // window.addEventListener("keydown", function(e) {
-            //     "Escape" !== e.key && "Esc" !== e.key || closeModal(e),
-            //     "Tab" === e.key && null !== modal && focusInModal(e)
-            // });
-
-
-
-
-
-            // CONTENUE
-
-
-
-//             fetch("http://localhost:5678/api/works")
-// .then(response => response.json())
-// .then(data=> {
-//     // console.log(data);
-//     // console.log(data[0].categoryId);
-
-//     const gallery = document.querySelector('.modifer');
-
-//     data.forEach(item => {
-//         const img = document.createElement('img');
-//         img.src = item.imageUrl;
-
-//         const figcaption = document.createElement('figcaption');
-//         figcaption.textContent = "éditer";
-
-//         const figure = document.createElement('figure');
-//         figure.appendChild(img);
-//         figure.appendChild(figcaption);
-
-//         gallery.appendChild(figure);
-//     });
-// });
-
-
-
-
-
-//  TOUT SUPRIMER
-
-
-// function suppGalerie(){
-//   // console.log("rarara");
-//   fetch("http://localhost:5678/api/works")
-//   .then(response => response.json())
-//   .then(data=> {
-
-//     const figures = document.querySelectorAll('main figure');
-//       figures.forEach(figure => {
-//         const figureCategoryId = parseInt(figure.getAttribute('data-category-id'));
-//         if (figureCategoryId !== 1) {
-//           figure.classList.add('hidden');
-//         }
-//       });
-    // const gallery = document.querySelector('.gallery');
-
-    // data.forEach(item => {
-    //     const img = document.createElement('img');
-    //     img.src = item.imageUrl;
-
-    //     const figcaption = document.createElement('figcaption');
-    //     figcaption.textContent = item.title;
-
-    //     const figure = document.createElement('figure');
-    //     figure.appendChild(img);
-    //     figure.appendChild(figcaption);
-
-    //     gallery.appendChild(figure);
-    // });
-    
-// });
-// }
-
-
-// function test(){
-//   fetch('http://localhost:5678/api/works/1', {
-//   method: 'DELETE',
-// })
-//   .then(response => {
-//     if (!response.ok) {
-//       throw new Error('Erreur lors de la suppression de l\'élément.');
-//     }
-//     console.log('L\'élément a été supprimé avec succès.');
-//   })
-//   .catch(error => {
-//     console.error('Une erreur s\'est produite :', error);
-//   });
-
-// }
 
 
 
@@ -414,11 +235,10 @@ addPhotoForm.addEventListener('submit', async (event) => {
     if (response.ok) {
       console.log('Image ajoutée avec succès');
 
-      // Fermer la modale
+     
       const addPhotoModal = document.querySelector('#add-photo-modal');
       addPhotoModal.style.display = 'none';
 
-      // Rafraîchir la galerie d'images
       fetchGalleryImages();
     } else {
       console.log('Une erreur est survenue');
@@ -426,7 +246,7 @@ addPhotoForm.addEventListener('submit', async (event) => {
     }
   } catch (error) {
     console.error('Une erreur est survenue', error);
-    // alert('Une erreur est survenue lors de l\'ajout de l\'image');
+
   }
 });
 
@@ -436,7 +256,7 @@ addPhotoCloseBtn.addEventListener('click', () => {
   addPhotoModal.style.display = 'none';
 });
 window.addEventListener('click', (event) => {
-  // Si l'événement de clic se produit en dehors de la modale, la fermer
+ 
   if (event.target == addPhotoModal) {
     addPhotoModal.style.display = 'none';
   }
@@ -450,15 +270,15 @@ window.addEventListener('click', (event) => {
 function readFile(e) {
   e.preventDefault();
 
-  // Constante et fonction pour la lecture de l'image
+
   const reader = new FileReader();
   reader.addEventListener("load", function () {
-    // Créer l'élément d'image de prévisualisation
+    
     const previewImage = document.createElement("img");
     previewImage.setAttribute("id", "preview_image");
     previewImage.setAttribute("src", reader.result);
   
-    // Ajouter les styles à l'élément de prévisualisation
+   
     previewImage.style.maxWidth = "380px";
     previewImage.style.maxHeight = "220px";
     previewImage.style.width = "auto";
@@ -469,28 +289,28 @@ function readFile(e) {
     previewImage.style.opacity = "1";
 
       
-    // Ajouter l'image de prévisualisation au conteneur
+ 
     const picture = document.querySelector(".picture");
     picture.appendChild(previewImage);
       
-    // Masquer le label de sélection de fichier
+
     const label = document.querySelector(".picture > label");
     label.style.opacity = "0";
       
-    // Masquer l'image de logo et le paragraphe suivant la prévisualisation de l'image
+ 
     const logoImage = document.querySelector("#logo_image");
     const pMaxSize = document.querySelector(".picture > p");
     logoImage.style.display = "none";
     pMaxSize.style.display = "none";
   });
   
-  // Lire le fichier sélectionné
+ 
   reader.readAsDataURL(inputFile.files[0]);
 }
 
-// Récupérer l'élément de fichier
+
 const inputFile = document.getElementById("image");
 
-// Ajouter un gestionnaire d'événements pour la sélection de fichier
+
 inputFile.addEventListener("change", readFile);
 
