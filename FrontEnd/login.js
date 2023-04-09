@@ -1,6 +1,6 @@
 
 
-  const loginForm = document.getElementById("login-form");
+const loginForm = document.getElementById("login-form");
 const emailInput = document.getElementById("email-input");
 const passwordInput = document.getElementById("password-input");
 const loginButton = document.getElementById("loginButton");
@@ -31,15 +31,13 @@ loginForm.addEventListener("submit", async (event) => {
       throw new Error("Echec de la connexion");
     }
 
-    const { userId, token } = await response.json();
-    localStorage.setItem("userId", userId);
+    const { token } = await response.json();
     localStorage.setItem("token", token);
-    console.log(userId, token);
+   
     window.location.href = "./index.html";
   } catch (error) {
     console.log(error);
     loginErrorMsg.style.display = "block";
-    // loginButton.innerHTML += "Echec de la connexion";
     loginButton.removeAttribute("disabled");
   }
 });

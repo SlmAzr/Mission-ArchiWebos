@@ -1,18 +1,18 @@
 
 // IMAGES / WORKS
 
-fetch('http://localhost:5678/api/works')
-.then(response => response.json()) // On convertit la réponse en JSON
-.then(data => {
-  console.log(data);});
+// fetch('http://localhost:5678/api/works')
+// .then(response => response.json()) 
+// .then(data => {
+//   console.log(data);});
 
 
 fetch('http://localhost:5678/api/works')
-.then(response => response.json()) // On convertit la réponse en JSON
+.then(response => response.json()) 
 .then(data => {
-  // On boucle sur les données
+
   for (const item of data) {
-    // On crée une nouvelle figure
+   
     const figure = document.createElement('figure');
     
     // On crée l'image
@@ -21,18 +21,18 @@ fetch('http://localhost:5678/api/works')
     img.alt = item.title;
     img.names = item.category.name;
     console.log(img.names);
-    img.setAttribute("crossorigin", "anonymous"); // Ajout du tag "crossorigin"
+   
     
     
-    // On crée la légende
+ 
     const figcaption = document.createElement('figcaption');
     figcaption.textContent = item.title;
     
-    // On ajoute l'image et la légende à la figure
+   
     figure.appendChild(img);
     figure.appendChild(figcaption);
     
-    // On ajoute la figure au conteneur "gallery"
+    
     document.querySelector('.gallery').appendChild(figure);
   }});
 
@@ -194,6 +194,7 @@ function connectedUser() {
   const btnModifier = document.getElementById('modifier');
   const fontBtn = document.querySelector('.fa-solid')
   if (token) {
+    console.log(token);
     const login = document.querySelector('.login');  
     const logout = document.querySelector('.logout');
     const filtersDiv = document.querySelector('.filtres');
@@ -201,11 +202,7 @@ function connectedUser() {
     login.style.display = 'none';
     logout.style.display = 'block';
     btnModifier.style.display = 'block';
-    // fontBtn.style.display = 'block';
-    console.log('here');
-    console.log(token);
-
-    // Ajouter les éléments d'édition si l'utilisateur est connecté
+   
     const blackHeadbandElement = document.createElement("div");
     blackHeadbandElement.classList.add("admin-headband");
 
