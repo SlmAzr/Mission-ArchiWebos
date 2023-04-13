@@ -55,7 +55,6 @@ fetch('http://localhost:5678/api/works')
     img.alt = item.title;
     img.names = item.category.name;
     img.id = item.id;
-    console.log(img.names);
     img.setAttribute("crossorigin", "anonymous"); 
 
 
@@ -159,15 +158,8 @@ function displayGalleryImages(images) {
   });
 });
 }
-
-
-
-
-
-
-
-  //  ://///////////////////////////////////////////-
-
+  
+//  :///////////// ADD //////////////////-
 
 const addPhotoBtn = document.querySelector('#ajouter-photo');
 addPhotoBtn.addEventListener('click', () => {
@@ -185,8 +177,6 @@ addPhotoForm.addEventListener('submit', async (event) => {
   const image = document.querySelector('#image').files[0];
 
   let categoryId;
-
-  console.log(categoryId, category);
   
   switch (category) {
    
@@ -201,8 +191,6 @@ addPhotoForm.addEventListener('submit', async (event) => {
       break;
     
   }
-
-  console.log(categoryId);
   
   const token = localStorage.getItem('token');
   
@@ -211,13 +199,6 @@ addPhotoForm.addEventListener('submit', async (event) => {
   formData.append('title', title);
   formData.append('category', categoryId);
   formData.append('image', image);
-
-  console.log(formData.getAll('category'));
-  console.log(formData.getAll('title'));
-  console.log(formData.getAll('image.name'));
-  console.log(formData.get('image'));
-
-  console.log(title, categoryId, image, image.name);
 
   const options = {
     method: 'POST',
@@ -230,7 +211,7 @@ addPhotoForm.addEventListener('submit', async (event) => {
   try {
     const response = await fetch('http://localhost:5678/api/works', options);
     categoryId = Number(categoryId);
-    console.log(categoryId);
+    
 
     if (response.ok) {
       console.log('Image ajoutée avec succès');
@@ -261,10 +242,6 @@ window.addEventListener('click', (event) => {
     addPhotoModal.style.display = 'none';
   }
 });
-
-
-
-
 
 // Afficher la prévisualisation de l'image à télécharger
 function readFile(e) {

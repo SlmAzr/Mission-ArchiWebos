@@ -1,12 +1,6 @@
 
 // IMAGES / WORKS
 
-// fetch('http://localhost:5678/api/works')
-// .then(response => response.json()) 
-// .then(data => {
-//   console.log(data);});
-
-
 fetch('http://localhost:5678/api/works')
 .then(response => response.json()) 
 .then(data => {
@@ -15,35 +9,24 @@ fetch('http://localhost:5678/api/works')
    
     const figure = document.createElement('figure');
     
-    // On crée l'image
     const img = document.createElement('img');
     img.src = item.imageUrl;
     img.alt = item.title;
     img.names = item.category.name;
-    console.log(img.names);
    
-    
-    
- 
     const figcaption = document.createElement('figcaption');
     figcaption.textContent = item.title;
-    
-   
+
     figure.appendChild(img);
     figure.appendChild(figcaption);
-    
-    
     document.querySelector('.gallery').appendChild(figure);
   }});
 
-
-
 // FILTRES
 
-
-const button = document.querySelector('#tous');
+const tousBtn = document.querySelector('#tous');
 function filtresTous(){
-  // console.log("rarara");
+  
   fetch("http://localhost:5678/api/works")
   .then(response => response.json())
   .then(data=> {
@@ -73,10 +56,10 @@ function filtresTous(){
     
 });
 }
-button.addEventListener('click', filtresTous);
+tousBtn.addEventListener('click', filtresTous);
 
 
-const button2 = document.querySelector('#objet');
+const objetBtn = document.querySelector('#objet');
 function filtresObjets() {
   fetch("http://localhost:5678/api/works")
     .then(response => response.json())
@@ -107,10 +90,10 @@ function filtresObjets() {
 
     });
 }
-button2.addEventListener('click', filtresObjets);
+objetBtn.addEventListener('click', filtresObjets);
 
 
-const button3 = document.querySelector('#Appart');
+const appartBtn = document.querySelector('#Appart');
 function filtresAppart(){
   fetch("http://localhost:5678/api/works")
     .then(response => response.json())
@@ -141,13 +124,13 @@ function filtresAppart(){
 
     });
 }
-button3.addEventListener('click', filtresAppart);
+appartBtn.addEventListener('click', filtresAppart);
 
 
 
 
 
-const button4 = document.querySelector('#hr');
+const hrBtn = document.querySelector('#hr');
 function filtresHR(){
   fetch("http://localhost:5678/api/works")
   .then(response => response.json())
@@ -178,23 +161,15 @@ function filtresHR(){
 
   });
 }
-button4.addEventListener('click', filtresHR);
-
-
-
+hrBtn.addEventListener('click', filtresHR);
 
 // CONNECTION
-
-
-
-
 
 function connectedUser() {
   const token = localStorage.getItem('token');
   const btnModifier = document.getElementById('modifier');
   const fontBtn = document.querySelector('.fa-solid')
   if (token) {
-    console.log(token);
     const login = document.querySelector('.login');  
     const logout = document.querySelector('.logout');
     const filtersDiv = document.querySelector('.filtres');
@@ -235,5 +210,4 @@ function logout() {
     window.location.href = "./index.html";
   });
 }
-
 logout();

@@ -1,18 +1,15 @@
 
-
 const loginForm = document.getElementById("login-form");
 const emailInput = document.getElementById("email-input");
 const passwordInput = document.getElementById("password-input");
 const loginButton = document.getElementById("loginButton");
-const loginErrorMsg = document.querySelector(".login-error-msg");
+const loginErrorMsg = document.getElementById("login-error-msg");
 
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const email = emailInput.value;
   const password = passwordInput.value;
-
-  console.log(email, password);
 
   loginButton.innerHTML = " ";
   loginButton.setAttribute("disabled", true);
